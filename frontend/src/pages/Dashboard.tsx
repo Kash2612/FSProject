@@ -421,11 +421,9 @@ import React, { useState, useEffect } from 'react';
 
 import {
   fetchStudents,
-  createStudent,
   updateStudent,
   deleteStudent,
   fetchCourses,
-  createCourse,
   updateCourse,
   deleteCourse,
 } from '../utils/api';
@@ -458,6 +456,7 @@ const Dashboard: React.FC = () => {
   }, [token]);
 
   const loadStudents = async () => {
+    if (!token) return; // Early return if token is null
     setLoading(true);
     setError(null);
     try {
@@ -471,6 +470,7 @@ const Dashboard: React.FC = () => {
   };
 
   const loadCourses = async () => {
+    if (!token) return; // Early return if token is null
     setLoading(true);
     setError(null);
     try {

@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchStudentById, updateStudent } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 
-const UpdateStudent: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+
+const UpdateStudent=() => {
+  const { id } = useParams();
   const { token } = useAuth();
   const navigate = useNavigate();
   const [student, setStudent] = useState({ name: '', email: '', enrolled_date: '' });
@@ -19,7 +20,7 @@ const UpdateStudent: React.FC = () => {
     loadStudent();
   }, [token, id]);
 
-  const handleUpdate = async (event: React.FormEvent) => {
+  const handleUpdate = async (event) => {
     event.preventDefault();
     if (token && id) {
       await updateStudent(token, Number(id), student);
