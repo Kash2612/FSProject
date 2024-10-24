@@ -1,4 +1,4 @@
-ximport React from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { deleteCourse } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
