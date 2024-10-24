@@ -41,4 +41,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # AWS access key ID
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # AWS secret key
           AWS_REGION: "eu-north-1" # Specify your AWS region
-          SOURCE_DIR: "frontend/build" # Directory where the built files are stored
+          SOURCE_DIR: "frontend/dist" # Directory where the built files are stored
