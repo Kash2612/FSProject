@@ -16,20 +16,21 @@ jobs:
     steps:
     # Step 1: Checkout the repository
     - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        # cache: 'npm'  # Caches `npm` dependencies for faster builds
+        cache: 'npm'  # Caches `npm` dependencies for faster builds
 
-    # Step 3: Install Dependencies
-    - run: cd frontend  # Go to your frontend folder
-    - run: ls
-    - run : npm ci # Install packages from package-lock.json
-    # Step 4: Build the React Application
-    - run: npm run build  # Builds the project, output to `build/`
+    # Step 3: Install Dependencies and Build the React Application
+    - run: |
+        cd frontend
+        npm ci  # Install packages from package-lock.json
+        npm run build  # Builds the project, output to `build/`
     
-    - uses: jakejarvis/s3-sync-action@master
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
@@ -37,4 +38,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS access key ID
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # AWS secret key
         AWS_REGION: 'eu-north-1'  # Specify your AWS region
-        SOURCE_DIR: 'build'  # Directory where the built files are stored
+        SOURCE_DIR: 'frontend/build'  # Directory where the built files are stored
