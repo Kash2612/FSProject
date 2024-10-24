@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Student, Course
+from .models import Student, Course, FileUpload
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 
@@ -50,3 +50,13 @@ class SignupSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])  # Hash the password
         user.save()
         return user
+    
+
+
+
+class FileUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FileUpload
+        fields = ['file', 'student', 'course']
+
+        
