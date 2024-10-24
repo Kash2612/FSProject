@@ -428,7 +428,7 @@ import {
   deleteCourse,
 } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
-import './Dashboard.css';
+import './dashboard.css';
 
 const Dashboard: React.FC = () => {
   const { token } = useAuth();
