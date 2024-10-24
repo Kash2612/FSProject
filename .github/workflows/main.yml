@@ -23,9 +23,15 @@ jobs:
 
       # Step 2: Install Dependencies
       - run: cd frontend
-      - run: ls -la # List files to check for package-lock.json
-      - run: npm ci # Install packages from package-lock.jso
-      - run: npm run build
+      - run: |
+          cd frontend
+          ls -la  # List files to check for package-lock.json
+          npm ci  # Install packages from package-lock.json
+
+      # Step 3: Build the React Application
+      - run: |
+          cd frontend
+          npm run build
 
       - uses: jakejarvis/s3-sync-action@master
         with:
