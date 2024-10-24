@@ -22,7 +22,7 @@ jobs:
           # cache: "npm" # Caches `npm` dependencies for faster builds
 
       # Step 2: Install Dependencies
-      - run: cd frontend
+
       - run: |
           cd frontend
           ls -la  # List files to check for package-lock.json
