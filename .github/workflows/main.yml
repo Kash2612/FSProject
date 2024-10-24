@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]  # Specify Node.js version
+        node-version: [22.x]  # Specify Node.js version
 
     steps:
     # Step 1: Checkout the repository
