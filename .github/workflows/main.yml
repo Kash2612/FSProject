@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version}} # Specify Node.js version
-          cache: "npm" # Caches `npm` dependencies for faster builds
+          # cache: "npm" # Caches `npm` dependencies for faster builds
 
       # Step 2: Install Dependencies
       - run: cd frontend
