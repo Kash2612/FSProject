@@ -69,6 +69,7 @@
 
 .table td {
   @apply text-gray-600;
+  @apply text-left
 }
 
 .table tr:hover {
