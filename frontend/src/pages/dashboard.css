@@ -71,6 +71,8 @@
   @apply text-gray-600;
 }
 
-
+.table tr:hover {
+  @apply bg-gray-100;
+}
 
 
