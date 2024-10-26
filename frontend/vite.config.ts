@@ -8,6 +8,6 @@ export default defineConfig({
     port: 5173,  // Default Vite port
   },
   build: {
-    outDir: 'build',  // Set Vite to output to 'build' instead of 'dist'
+    outDir: 'dist',  // Set Vite to output to 'build' instead of 'dist'
   },
 });
